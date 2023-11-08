@@ -15,3 +15,11 @@ ORDER BY
 order_items.id ASC
 
 -- 3 -- 
+SELECT categories.name, SUM(order_items.quantity* order_items.unit_price) AS total_revenue
+FROM categories
+INNER JOIN products
+LEFT JOIN order_items ON products.id = order_items.product_id
+ORDER BY total_revenue DESC
+
+
+-- 4 --
